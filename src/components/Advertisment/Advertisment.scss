@@ -1,0 +1,48 @@
+.advertisment {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 0;
+
+  &__item {
+    list-style: none;
+    width: 48%;
+
+    & > div {
+      position: relative;
+    }
+
+    & > div > h4 {
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      font-size: 28px;
+      font-weight: 500;
+      line-height: 28px;
+      margin: 0 0 8px;
+    }
+
+    & > div > p {
+      position: absolute;
+      top: 36%;
+      left: 50%;
+      font-size: 18px;
+      line-height: 22px;
+      font-weight: 500;
+      margin: 0 0 30px;
+    }
+
+    & > div > div {
+      position: absolute;
+      left: 50%;
+      top: 56%;
+
+      & > span {
+        margin-right: 12px;
+      }
+    }
+
+    & > div > div :hover {
+      opacity: 0.8;
+    }
+  }
+}

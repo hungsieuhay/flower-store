@@ -1,0 +1,35 @@
+.grid-config {
+  width: 1200px;
+  display: block;
+  margin: 0 auto;
+}
+.header {
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &-left {
+      & > span {
+        font-size: 14px;
+        margin-left: 4px;
+      }
+    }
+    &-action {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+
+      & > input {
+        border: none;
+        border-bottom: 2px solid #000;
+        outline: none;
+      }
+      ::placeholder {
+        font-size: 16px;
+        color: #000;
+        padding-bottom: 4px;
+      }
+    }
+  }
+}

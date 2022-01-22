@@ -1,0 +1,37 @@
+.banner {
+  background: url("https://res.cloudinary.com/didlxgowc/image/upload/f_auto,c_limit,w_1200,q_auto/cass15_mrg4hb.jpg")
+    center no-repeat;
+  background-size: cover;
+  padding: 40px 60px;
+
+  & > h4 {
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 28px;
+    margin: 0 0 8px;
+  }
+
+  & > h5 {
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 500;
+    margin: 0 0 20px;
+  }
+
+  &__btn {
+    width: 10%;
+    padding: 12px 20px;
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+
+    & > span {
+      font-size: 14px;
+      font-weight: 300;
+      margin-right: 12px;
+    }
+  }
+}
