@@ -1,6 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Advertisment.scss";
-import TrendingFlatIcon from "@material-ui/icons/TrendingFlat";
 
 function Advertisment(props) {
   const advData = [
@@ -10,6 +10,7 @@ function Advertisment(props) {
       description: "for loved ones",
       imgUrl:
         "https://res.cloudinary.com/didlxgowc/image/upload/f_auto,c_limit,w_640,q_auto/cass23_gfwimt.png",
+      link: "/gifts",
     },
     {
       id: 2,
@@ -17,6 +18,7 @@ function Advertisment(props) {
       description: "for home comfort",
       imgUrl:
         "https://res.cloudinary.com/didlxgowc/image/upload/f_auto,c_limit,w_640,q_auto/cass31_esdbjz.png",
+      link: "/plants",
     },
   ];
   return (
@@ -35,8 +37,9 @@ function Advertisment(props) {
             <h4>{adv.title}</h4>
             <p>{adv.description}</p>
             <div>
-              <span>View now</span>
-              <TrendingFlatIcon style={{ fontSize: "20px" }} />
+              <Link to={adv.link}>
+                <span>View now</span>
+              </Link>
             </div>
           </div>
         </li>

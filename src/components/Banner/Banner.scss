@@ -28,10 +28,16 @@
     align-items: center;
     border-radius: 8px;
 
-    & > span {
+    & > a {
       font-size: 14px;
       font-weight: 300;
       margin-right: 12px;
+      color: #fff;
+      text-decoration: none;
     }
+  }
+
+  &__btn:hover {
+    opacity: 0.8;
   }
 }

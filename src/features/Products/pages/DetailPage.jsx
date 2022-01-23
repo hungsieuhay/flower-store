@@ -41,7 +41,6 @@ function DetailPage(props) {
       try {
         const { data } = await productsApi.get(productId);
         setProduct(data);
-        console.log(data);
       } catch (error) {
         console.log("Failed to fetch data", error);
       }

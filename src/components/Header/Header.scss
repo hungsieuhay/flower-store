@@ -8,7 +8,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin: 8px 0 20px;
 
+    & > a {
+      font-size: 24px;
+      color: #000;
+      text-decoration: none;
+    }
     &-left {
       & > span {
         font-size: 14px;
@@ -31,5 +37,28 @@
         padding-bottom: 4px;
       }
     }
+  }
+}
+
+.nav__link {
+  display: flex;
+  justify-content: center;
+  padding-left: 0;
+  margin: 0 0 40px;
+
+  & > li {
+    margin: 0 32px;
+    list-style: none;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  & > li > a {
+    color: #000;
+    text-decoration: none;
+  }
+
+  & > li > a:focus {
+    font-weight: 700;
   }
 }

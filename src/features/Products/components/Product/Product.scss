@@ -1,25 +1,26 @@
 .product {
   text-align: center;
-  margin: 0 8px;
+  margin: 8px;
   cursor: pointer;
 
   &__thumbnail {
     background-color: #f8f8f8;
-    padding: 15px;
-    margin-bottom: 20px;
+    margin: 0 2% 20px;
+    width: 96%;
 
     & > img {
-      height: 230px;
+      height: 260px;
+      width: 100%;
     }
   }
   & > h3 {
     font-size: 18px;
     line-height: 22px;
     font-weight: 500;
-    margin: 0 0 8px;
+    margin: 0 0 10px;
   }
   & > h5 {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 17px;
     font-weight: 500;
     margin: 0;

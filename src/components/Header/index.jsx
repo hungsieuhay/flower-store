@@ -3,13 +3,14 @@ import SearchIcon from "@material-ui/icons/Search";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./Header.scss";
 
 Header.propTypes = {
   headerLinkItem: PropTypes.array,
 };
 
-function Header({ headerLinkItem } = []) {
+function Header({ headerLinkItem = [] }) {
   const [show, setShow] = useState(false);
 
   return (
@@ -20,7 +21,7 @@ function Header({ headerLinkItem } = []) {
             <LocationOnIcon style={{ fontSize: "14px" }} />
             <span>London</span>
           </div>
-          <h3 style={{ fontSize: "24px" }}>CASSIOPEIA</h3>
+          <Link to="/home">CASSIOPEIA</Link>
           <div className="header__nav-action">
             {show && <input type="text" placeholder="Search" />}
             <SearchIcon
@@ -30,6 +31,14 @@ function Header({ headerLinkItem } = []) {
             <ShoppingCartIcon style={{ fontSize: "32px" }} />
           </div>
         </div>
+
+        <ul className="nav__link">
+          {headerLinkItem.map((item) => (
+            <li key={item.title}>
+              <Link to={item.link}>{item.title}</Link>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );
