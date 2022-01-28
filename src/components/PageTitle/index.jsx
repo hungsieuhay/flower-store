@@ -7,7 +7,7 @@ TitlePage.propTypes = {
   data: PropTypes.string,
 };
 
-function TitlePage({ data = [] }) {
+function TitlePage({ data = "" }) {
   return (
     <div className="title-page">
       <Link to="/home">
@@ -15,6 +15,12 @@ function TitlePage({ data = [] }) {
       </Link>
       <span className="title-page__space">/</span>
       <span className="title-page__location">{data}</span>
+      {data.name && (
+        <>
+          <span className="title-page__space">/</span>
+          <span>{data.name}</span>
+        </>
+      )}
       <h1>{data}</h1>
     </div>
   );

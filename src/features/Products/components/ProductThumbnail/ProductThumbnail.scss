@@ -1,0 +1,27 @@
+.product-thumbnail {
+  width: 468px;
+  height: 468px;
+  & > img {
+    background-color: #f9f9fb;
+    // padding: 50px;
+    margin-bottom: 30px;
+  }
+  & > ul {
+    padding-left: 0;
+    display: flex;
+    justify-content: space-around;
+
+    & > li {
+      display: flex;
+      list-style: none;
+      justify-content: center;
+      align-items: center;
+
+      & > span {
+        font-size: 12px;
+        margin-left: 10px;
+        color: #000;
+      }
+    }
+  }
+}

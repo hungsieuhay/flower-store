@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import productsApi from "../../../api/productApi";
+import Dropdown from "../../../components/Dropdown";
 import TitlePage from "../../../components/PageTitle";
 import ProductList from "../components/ProductList";
 import "./HomePage.scss";
@@ -27,6 +28,7 @@ function ProductPage(props) {
   return (
     <div className="grid-config">
       <TitlePage data={category} />
+      {/* <Dropdown /> */}
       <ProductList data={items} />
     </div>
   );
