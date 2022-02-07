@@ -6,6 +6,7 @@ import Typography from "@material-ui/core/Typography";
 import AddIcon from "@material-ui/icons/Add";
 import PropTypes from "prop-types";
 import React from "react";
+import QuantityField from "../../../../components/QuantityField";
 import "./ProductInfo.scss";
 
 ProductInfo.propTypes = {
@@ -41,6 +42,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 function ProductInfo({ product = {} }) {
   const classes = useStyles();
+
+  const handleFormSubmit = (values) => {
+    console.log("Quantity:", values);
+  };
   return (
     <div className="product-info">
       <h3>{product.name}</h3>
@@ -50,10 +55,10 @@ function ProductInfo({ product = {} }) {
       {product.types && <h5>Types: {product.types}</h5>}
       {product.occasion && <h5>Occasion: {product.occasion}</h5>}
 
-      <button>Order now</button>
+      <QuantityField onSubmit={handleFormSubmit} />
 
       {data.map((item) => (
-        <Accordion className={classes.root}>
+        <Accordion key={item.heading} className={classes.root}>
           <AccordionSummary
             expandIcon={<AddIcon style={{ color: "#000" }} />}
             aria-controls="panel1a-content"

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import productsApi from "../../../api/productApi";
-import Dropdown from "../../../components/Dropdown";
+// import Dropdown from "../../../components/Dropdown";
 import TitlePage from "../../../components/PageTitle";
 import ProductList from "../components/ProductList";
 import "./HomePage.scss";
