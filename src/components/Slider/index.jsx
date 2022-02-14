@@ -16,7 +16,6 @@ function Silder({ data = [] }) {
     setCurrent(current + 1);
     setTotal(total + 1);
   };
-  console.log({ product });
   return (
     <>
       <div className="slider-btn">

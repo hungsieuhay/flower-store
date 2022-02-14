@@ -1,0 +1,14 @@
+.checkout {
+  width: 1200px;
+  display: block;
+  margin: 0 auto 50px;
+  
+  &_main {
+    display:flex;
+    justify-content: space-between;
+  }
+  &-container {
+  width:50%
+
+  }
+}

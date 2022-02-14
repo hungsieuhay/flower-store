@@ -1,24 +1,36 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { Link, useRouteMatch } from "react-router-dom";
+import productApi from "../../api/productApi";
+import * as action from "../../redux/cart/cartAction";
 import "./QuantityField.scss";
-import PropTypes from "prop-types";
 
-QuantityField.propTypes = {
-  onSubmit: PropTypes.func,
-};
+QuantityField.propTypes = {};
 
-function QuantityField({ onSubmit = null }) {
+function QuantityField(props) {
   const [value, setValue] = useState(1);
+  const [product, setProduct] = useState({});
+  const dispatch = useDispatch();
+  const {
+    params: { productId },
+  } = useRouteMatch();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!onSubmit) return;
-    const formValues = {
-      value: value,
-    };
-    onSubmit(formValues);
+  useEffect(() => {
+    (async () => {
+      try {
+        const { data } = await productApi.get(productId);
+        setProduct(data);
+      } catch (error) {
+        console.log("Failed to fetch data", error);
+      }
+    })();
+  }, [productId]);
+
+  const handleSubmit = () => {
+    dispatch(action.addToCart(product, value));
   };
   return (
-    <form className="quantity-field" onSubmit={handleSubmit}>
+    <form className="quantity-field">
       <div>
         <div onClick={() => setValue(value ? 1 : value - 1)}>
           <img src="https://cassiopeia.store/svgs/minus-i.svg" alt="error" />
@@ -29,8 +41,10 @@ function QuantityField({ onSubmit = null }) {
           <img src="https://cassiopeia.store/svgs/plus-i.svg" alt="error" />
         </div>
       </div>
-      <button type="submit" onSubmit={handleSubmit}>
-        Order now
+      <button>
+        <div onClick={handleSubmit}>
+          <Link to="/checkout">Order now</Link>
+        </div>
       </button>
     </form>
   );

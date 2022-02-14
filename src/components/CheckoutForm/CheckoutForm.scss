@@ -1,0 +1,41 @@
+.checkout-form {
+  width: 100%;
+  margin: 20px 0 30px;
+  & > p{
+    margin-top: 0;
+    margin-bottom: 20px;
+    padding-top: 20px;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 500;
+  }
+  &__input {
+    display: flex;
+    justify-content:flex-start;
+    margin-bottom: 20px;
+
+    & >input {
+      height:50px;
+      width:100%;
+      border: 1px solid #afb1bd;
+      display: flex;
+      justify-content:space-between;
+      margin-right:15px;
+      border-radius: 4px;
+      padding:0 8px;
+    }
+    ::placeholder {
+      columns: #88767a;
+    }
+  }
+
+  &__radio {
+    & > span {
+      margin-right:20px;
+    }
+    & > input {
+      font-weight: 500;
+    }
+  }
+  
+}

@@ -23,7 +23,18 @@ function Product({ product = {} }) {
         <img src={product.imageUrl} alt={product.id} />
       </div>
       <h3>{product.name}</h3>
-      <h5>{product.price}</h5>
+      <div className="product__price">
+        <div>
+          <span>$</span>
+          <span>{product.price}</span>
+        </div>
+        {product.isPromotion && (
+          <div style={{ color: "#82828b", textDecoration: "line-through" }}>
+            <span>$</span>
+            <span>{product.originalPrice}</span>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

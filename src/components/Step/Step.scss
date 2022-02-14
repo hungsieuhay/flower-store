@@ -1,0 +1,24 @@
+.step {
+  color: #afb1bd;
+  font-size: 16px;
+  line-height: 24px;
+  display:flex;
+  justify-content: flex-start;
+  margin-right:16px;
+  
+  & > div {
+    width: 24px;
+    height: 24px;
+    justify-content: center;
+    border: 1px solid #afb1bd;
+    border-radius: 50%;
+    color: #afb1bd;
+    margin-right: 8px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+}

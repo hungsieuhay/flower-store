@@ -18,7 +18,7 @@ axiosClient.interceptors.request.use(
   }
 );
 
-// Add a response interceptor
+// Add a response interceptor2
 axiosClient.interceptors.response.use(
   function (response) {
     // Any status code that lie within the range of 2xx cause this function to trigger

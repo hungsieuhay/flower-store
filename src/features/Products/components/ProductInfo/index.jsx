@@ -43,19 +43,17 @@ const useStyles = makeStyles((theme) => ({
 function ProductInfo({ product = {} }) {
   const classes = useStyles();
 
-  const handleFormSubmit = (values) => {
-    console.log("Quantity:", values);
-  };
   return (
     <div className="product-info">
       <h3>{product.name}</h3>
       <div className="product-info__price">
+        <span>$</span>
         <span>{product.price}</span>
       </div>
       {product.types && <h5>Types: {product.types}</h5>}
       {product.occasion && <h5>Occasion: {product.occasion}</h5>}
 
-      <QuantityField onSubmit={handleFormSubmit} />
+      <QuantityField />
 
       {data.map((item) => (
         <Accordion key={item.heading} className={classes.root}>

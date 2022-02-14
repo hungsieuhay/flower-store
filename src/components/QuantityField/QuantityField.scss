@@ -11,6 +11,12 @@
     text-align: center;
     width: 5%;
   }
+
+  & > div > div > img:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+
   & > button {
     text-align: center;
     margin: 40px 0 60px;
@@ -18,11 +24,19 @@
     height: 56px;
     font-size: 16px;
     background-color: #000;
-    color: #fff;
     border: none;
     border-radius: 4px;
   }
   & > button:hover {
     opacity: 0.8;
+  }
+
+  & > button > div > a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    height: 100%;
+    width: 100%;
+    line-height: 54px;
   }
 }

@@ -19,12 +19,21 @@
     font-weight: 500;
     margin: 0 0 10px;
   }
-  & > h5 {
-    font-size: 16px;
-    line-height: 17px;
-    font-weight: 500;
-    margin: 0;
+  &__price {
+    display: flex;
+    justify-content:center;
+
+    & > div {
+      margin: 0 8px;
+    }
+
+    & > div > span {
+      font-size: 15px;
+      line-height: 17px;
+      font-weight: 500;
+    }
   }
+  
 
   & > h3:hover {
     opacity: 0.8;
