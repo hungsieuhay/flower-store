@@ -1,0 +1,12 @@
+.drop-down {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e6e6eb;
+  margin-bottom: 40px;
+
+  & > div {
+    display: flex;
+    justify-content: space-between;
+  }
+}

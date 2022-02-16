@@ -3,6 +3,7 @@ import SearchIcon from "@material-ui/icons/Search";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
+import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "./Header.scss";
 
@@ -12,7 +13,17 @@ Header.propTypes = {
 
 function Header({ headerLinkItem = [] }) {
   const [show, setShow] = useState(false);
+  const [isActive, setActive] = useState(false);
+  const location = useLocation();
+  const path = location.pathname.substring(1);
+  console.log("path: ", path);
 
+  const handleClick = (e) => {
+    console.log(e.target.innerHTML);
+    if (path === e.target.innerHTML) {
+      setActive(!isActive);
+    }
+  };
   return (
     <div className="grid-config">
       <div className="header">
@@ -32,9 +43,13 @@ function Header({ headerLinkItem = [] }) {
           </div>
         </div>
 
-        <ul className="nav__link">
+        <ul className="nav__link ">
           {headerLinkItem.map((item) => (
-            <li key={item.title}>
+            <li
+              key={item.title}
+              onClick={handleClick}
+              className={isActive ? "active" : ""}
+            >
               <Link to={item.link}>{item.title}</Link>
             </li>
           ))}

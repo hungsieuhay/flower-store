@@ -1,12 +1,12 @@
 .product {
   text-align: center;
-  margin: 8px;
   cursor: pointer;
+  width:260px;
 
   &__thumbnail {
     background-color: #f8f8f8;
-    margin: 0 2% 20px;
-    width: 96%;
+    margin-bottom: 20px;
+    width: 100%;
 
     & > img {
       height: 260px;

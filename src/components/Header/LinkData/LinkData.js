@@ -1,22 +1,22 @@
 const linkData = [
   {
-    title: "Flowers",
+    title: "flowers",
     link: "/flowers",
   },
   {
-    title: "Plants",
+    title: "plants",
     link: "/plants",
   },
   {
-    title: "Gifts",
+    title: "gifts",
     link: "/gifts",
   },
   {
-    title: "Discounts",
+    title: "discounts",
     link: "/discounts",
   },
   {
-    title: "About us",
+    title: "about us",
     link: "/about-us",
   },
 ];

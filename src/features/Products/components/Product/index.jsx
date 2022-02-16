@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./Product.scss";
 import { useHistory } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 Product.propTypes = {
   product: PropTypes.object,
@@ -9,11 +10,10 @@ Product.propTypes = {
 
 function Product({ product = {} }) {
   const history = useHistory();
-  // const location = useLocation();
-  // const path = location.pathname.split("/");
-  // const category = path[path.length - 1];
+  const location = useLocation();
 
   const handleClick = () => {
+    location.pathname = "/";
     history.push(`${product.category}/${product.id}`);
   };
 

@@ -1,5 +1,27 @@
-.slider {
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: space-between;
+.Slider {
+  position: relative;
+  margin-top: 40px;
+  & > div {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    margin: 20px 0;
+  }
+
+  .swiper {
+    position: unset;
+
+    .swiper-button-next {
+      top: 13px;
+      left: 94%;
+      opacity: 0;
+      width: 44px;
+    }
+    .swiper-button-prev {
+      top: 13px;
+      left: 97%;
+      opacity: 0;
+      width: 44px;
+    }
+  }
 }

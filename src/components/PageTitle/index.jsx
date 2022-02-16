@@ -4,24 +4,24 @@ import "./TitlePage.scss";
 import { Link } from "react-router-dom";
 
 TitlePage.propTypes = {
-  data: PropTypes.string,
+  data: PropTypes.array,
 };
 
-function TitlePage({ data = "" }) {
+function TitlePage({ data = [] }) {
   return (
     <div className="title-page">
-      <Link to="/home">
-        <span>Home</span>
-      </Link>
-      <span className="title-page__space">/</span>
-      <span className="title-page__location">{data}</span>
-      {data.name && (
-        <>
-          <span className="title-page__space">/</span>
-          <span>{data.name}</span>
-        </>
-      )}
-      <h1>{data}</h1>
+      <div>
+        <Link to="/home">
+          <span>Home</span>
+        </Link>
+        {data.map((title) => (
+          <p key={title} className="title-page__location">
+            <span>/</span>
+            {title}
+          </p>
+        ))}
+      </div>
+      <h1>{data[0]}</h1>
     </div>
   );
 }

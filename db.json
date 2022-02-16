@@ -68,7 +68,6 @@
         "name": "Love of Chocolate",
         "imageUrl": "https://res.cloudinary.com/didlxgowc/image/upload/f_auto,c_limit,w_1920,q_auto/6184e2a2c71d4438542627_moioxi.webp",
         "price": "79", 
-        "types": "Lilies, Gerberas",
         "category": "gifts",
         "occasion": "Valentine",
         "isPromotion": true,
@@ -163,7 +162,7 @@
         "imageUrl": "https://res.cloudinary.com/didlxgowc/image/upload/f_auto,c_limit,w_1920,q_auto/613efaa664fdd557877209_hvadrm.webp",
         "price": "90", 
         "category": "gifts",
-        "occasion": "New year",
+        "occasion": "New Year",
         "isPromotion": true,
         "originalPrice": "150"
       },

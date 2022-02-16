@@ -13,3 +13,10 @@
 .product-list__btn:hover {
   opacity: 0.8;
 }
+
+.product-list {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 53px;
+}

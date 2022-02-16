@@ -1,44 +1,51 @@
 import PropTypes from "prop-types";
-import React, { useState } from "react";
-import Product from "../../features/Products/components/Product";
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
 import "./Slider.scss";
+import { useState } from "react";
 
-Silder.propTypes = {
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import { Pagination, Navigation } from "swiper";
+import Product from "../../features/Products/components/Product";
+
+Slider.propTypes = {
   data: PropTypes.array,
 };
 
-function Silder({ data = [] }) {
-  const [total, setTotal] = useState(4);
-  const [current, setCurrent] = useState(0);
-
-  const product = data.filter((data, index) => ({}));
-  const handleNext = () => {
-    setCurrent(current + 1);
-    setTotal(total + 1);
-  };
+function Slider({ data = [] }) {
   return (
-    <>
-      <div className="slider-btn">
-        <button onClick={handleNext}>Next</button>
-        <button>Prev</button>
+    <div className="Slider">
+      <div>
+        <img
+          src="https://cassiopeia.store/svgs/line-left-arrow-black.svg"
+          alt=""
+        />
+        <img
+          src="https://cassiopeia.store/svgs/line-right-arrow-black.svg"
+          alt=""
+        />
       </div>
-      <div className="slider">
-        {product.map((product, index) => (
-          <div key={index}>
-            <Product product={product} />
-          </div>
+      <Swiper
+        slidesPerView={4}
+        spaceBetween={30}
+        slidesPerGroup={1}
+        loop={true}
+        loopFillGroupWithBlank={true}
+        navigation={true}
+        modules={[Pagination, Navigation]}
+        className="mySwiper"
+      >
+        {data.map((slide) => (
+          <SwiperSlide key={slide.id}>
+            <Product product={slide} />
+          </SwiperSlide>
         ))}
-        {/* {total < data.length && (
-        <button
-          className="product-list__btn"
-          onClick={() => setTotal(total + 1)}
-        >
-          See more
-        </button>
-      )} */}
-      </div>
-    </>
+      </Swiper>
+    </div>
   );
 }
 
-export default Silder;
+export default Slider;

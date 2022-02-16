@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom";
 import productsApi from "../../../api/productApi";
 import TitlePage from "../../../components/PageTitle";
 import ProductList from "../components/ProductList";
-import "./AboutUs.scss";
+// import "./AboutUs.scss";
 import "./HomePage.scss";
 import "./Discount.scss";
 
@@ -13,8 +13,7 @@ function Discount(props) {
 
   const location = useLocation();
   const path = location.pathname.split("/");
-  const category = path[path.length - 1];
-
+  path.shift();
   useEffect(() => {
     (async () => {
       try {
@@ -28,7 +27,7 @@ function Discount(props) {
   return (
     <div className="grid-config">
       <div className="discount">
-        <TitlePage data={category} />
+        <TitlePage data={path} />
         <p>Special Offer</p>
         <ProductList data={items} />
         <p>Event</p>

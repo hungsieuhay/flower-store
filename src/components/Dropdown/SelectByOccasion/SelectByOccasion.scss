@@ -27,7 +27,6 @@
     
 
     & > li {
-      // display: none;
       list-style: none;
       padding: 7px 25px;
       line-height:22px;
@@ -37,6 +36,8 @@
       cursor: pointer;
       background-color: rgba(0,0,0,.035);
     }
+
+
   }
   .list-filter::after {
       content: "";

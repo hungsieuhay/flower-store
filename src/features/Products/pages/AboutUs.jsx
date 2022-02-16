@@ -7,10 +7,10 @@ import "./HomePage.scss";
 function AboutUs(props) {
   const location = useLocation();
   const path = location.pathname.split("/");
-  const category = path[path.length - 1];
+  path.shift();
   return (
     <div className="grid-config">
-      <TitlePage data={category} />
+      <TitlePage data={path} />
       <div className="about-us">
         <div className="about-us__content">
           <p style={{ margin: "0" }}>

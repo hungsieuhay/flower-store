@@ -13,14 +13,14 @@ function ProductList({ data = [] }) {
   const [total, setTotal] = useState(4);
   const product = data.filter((data, index) => index < total);
   return (
-    <Box>
-      <Grid container>
+    <div>
+      <div className="product-list">
         {product.map((product, index) => (
-          <Grid item key={index} xs={12} sm={6} md={4} lg={3}>
+          <div key={index}>
             <Product product={product} />
-          </Grid>
+          </div>
         ))}
-      </Grid>
+      </div>
       {total < data.length && (
         <button
           className="product-list__btn"
@@ -29,7 +29,7 @@ function ProductList({ data = [] }) {
           See more
         </button>
       )}
-    </Box>
+    </div>
   );
 }
 

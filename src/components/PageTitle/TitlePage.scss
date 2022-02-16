@@ -1,22 +1,30 @@
 .title-page {
   text-transform: capitalize;
   font-size: 16px;
+  & > div {
+    display: flex;
+    justify-content: flex-start;
 
-  & > a {
-    text-decoration: none;
-    color: #000;
+    & > a {
+      text-decoration: none;
+      color: #000;
+    }
+
+    & > a:hover {
+      text-decoration: underline;
+    }
   }
-
-  & > a:hover {
-    text-decoration: underline;
-  }
-
-  &__space {
-    margin: 0 10px;
-  }
-
   &__location {
-    font-weight: 500;
+    margin: 0;
+
+    & > span {
+      margin: 0 16px;
+      font-weight: normal;
+    }
+    &:last-child {
+      font-weight: 500;
+      color: #000;
+    }
   }
 
   & > h1 {
