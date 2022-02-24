@@ -3,7 +3,7 @@ import * as actionTypes from "./types";
 const initialState = {
   cartItems: [],
   totalMoney: 0,
-  countItems: 0,
+  // countItems: 0, 
 };
 
 const cartReducer = (state = initialState, action) => {

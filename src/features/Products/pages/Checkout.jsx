@@ -20,14 +20,14 @@ function Checkout(props) {
 
   const location = useLocation();
   const path = location.pathname.split("/");
-  const category = path[path.length - 1];
+  path.shift();
 
   const selector = useSelector((state) => state.cart);
   const cartData = selector.cartItems;
 
   return (
     <div className="checkout">
-      <TitlePage data={category} />
+      <TitlePage data={path} />
       <div className="checkout_main">
         <div className="checkout-container">
           <StepNavigation stepNavigation={labelStep} currentStep={step} />

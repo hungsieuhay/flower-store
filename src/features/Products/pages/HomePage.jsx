@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import productApi from "../../../api/productApi";
+import productsApi from "../../../api/productApi";
 import Advertisment from "../../../components/Advertisment";
 import Banner from "../../../components/Banner";
 import ProductList from "../components/ProductList";
@@ -13,7 +13,7 @@ function HomePage(props) {
   useEffect(() => {
     (async () => {
       try {
-        const { data } = await productApi.getAll();
+        const { data } = await productsApi.getAll();
         setItems(data);
       } catch (error) {
         console.log("Fetch data failed:", error);

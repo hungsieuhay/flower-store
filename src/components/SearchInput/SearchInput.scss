@@ -1,0 +1,15 @@
+.search-input > input {
+  position: absolute;
+  font-size: 16px;
+  border: none;
+  border-bottom: 2px solid #000;
+  outline: none;
+  padding-bottom: 4px;
+  bottom: 0;
+  right: 100%;
+}
+::placeholder {
+  font-size: 16px;
+  color: #000;
+  padding-bottom: 4px;
+}

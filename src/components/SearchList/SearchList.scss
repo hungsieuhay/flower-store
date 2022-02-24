@@ -1,0 +1,15 @@
+.search-list {
+  display: block;
+  margin-top: 12px;
+  position: absolute;
+  top: 100%;
+  width: 354px;
+  right: 0;
+  z-index: 3;
+  background-color: #fff;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  overflow: auto;
+  transition: height 0.3s;
+  box-shadow: -5px 10px 35px rgb(90 92 102 / 6%);
+}

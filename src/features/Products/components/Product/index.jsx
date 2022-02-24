@@ -18,9 +18,17 @@ function Product({ product = {} }) {
   };
 
   return (
-    <div className="product" onClick={handleClick}>
+    <div className="product">
       <div className="product__thumbnail">
         <img src={product.imageUrl} alt={product.id} />
+        <div className="product__action">
+          <img src="https://cassiopeia.store/svgs/cart-btn.svg" alt="" />
+          <img
+            src="https://cassiopeia.store/svgs/view-btn.svg"
+            alt=""
+            onClick={handleClick}
+          />
+        </div>
       </div>
       <h3>{product.name}</h3>
       <div className="product__price">

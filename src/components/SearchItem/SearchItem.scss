@@ -1,0 +1,23 @@
+.search-item {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+
+  & > img {
+    width: 100px;
+    height: 100px;
+  }
+
+  & > div {
+    width: 65%;
+    & > p {
+      margin: 0;
+    }
+    & > h5 {
+      margin: 0;
+    }
+  }
+  &:hover {
+    opacity: 0.8;
+  }
+}

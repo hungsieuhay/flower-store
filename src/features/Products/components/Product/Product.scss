@@ -1,16 +1,36 @@
 .product {
   text-align: center;
   cursor: pointer;
-  width:260px;
+  width: 260px;
 
   &__thumbnail {
     background-color: #f8f8f8;
     margin-bottom: 20px;
     width: 100%;
+    position: relative;
 
     & > img {
       height: 260px;
       width: 100%;
+    }
+
+    .product__action {
+      display: none;
+    }
+
+    &:hover .product__action {
+      display: block;
+      position: absolute;
+      bottom: 0;
+      top: 70%;
+      right: 50%;
+      transform: translateX(50%);
+      width: 100%;
+      bottom: 0;
+      & > img {
+        display: inline-block;
+        margin: 0 15px;
+      }
     }
   }
   & > h3 {
@@ -21,7 +41,7 @@
   }
   &__price {
     display: flex;
-    justify-content:center;
+    justify-content: center;
 
     & > div {
       margin: 0 8px;
@@ -33,7 +53,6 @@
       font-weight: 500;
     }
   }
-  
 
   & > h3:hover {
     opacity: 0.8;

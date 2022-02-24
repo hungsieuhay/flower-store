@@ -11,8 +11,11 @@ function DetailPage(props) {
   const [product, setProduct] = useState({});
   const [items, setItems] = useState([]);
   const location = useLocation();
+
+  // path
   const path = location.pathname.split("/");
   path.shift();
+  path[path.length - 1] = product.name;
   const category = path[0];
 
   const {

@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
-
 import { useLocation } from "react-router-dom";
 import productsApi from "../../../api/productApi";
 import TitlePage from "../../../components/PageTitle";
-import ProductList from "../components/ProductList";
+import Slider from "../../../components/Slider";
+import "./Discount.scss";
 // import "./AboutUs.scss";
 import "./HomePage.scss";
-import "./Discount.scss";
 
 function Discount(props) {
   const [items, setItems] = useState([]);
@@ -29,7 +28,7 @@ function Discount(props) {
       <div className="discount">
         <TitlePage data={path} />
         <p>Special Offer</p>
-        <ProductList data={items} />
+        <Slider data={items} />
         <p>Event</p>
         <div className="discount__gallery">
           <div className="discount__gallery-1">
