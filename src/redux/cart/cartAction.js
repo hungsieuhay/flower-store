@@ -1,4 +1,3 @@
-import productsApi from "../../api/productApi";
 import * as actionTypes from "./types";
 
 export const addToCart = (item, qty) => {

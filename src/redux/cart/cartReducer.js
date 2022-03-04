@@ -3,7 +3,7 @@ import * as actionTypes from "./types";
 const initialState = {
   cartItems: [],
   totalMoney: 0,
-  // countItems: 0, 
+  // countItems: 0,
 };
 
 const cartReducer = (state = initialState, action) => {
@@ -20,18 +20,14 @@ const cartReducer = (state = initialState, action) => {
         };
         return {
           ...state,
-          cartItems: [...state.cartItems, newItems],
-          totalMoney:
-            parseInt(state.totalMoney) +
-            parseInt(action.payload.item.price) * action.payload.qty,
+          cartItems: [newItems],
+          totalMoney: parseInt(action.payload.item.price) * action.payload.qty,
         };
       } else {
         // debugger;
 
         const idPd = action.payload.item.id;
-        const searchPd = state.cartItems.filter(
-          (item) => item.item.id === idPd
-        )[0];
+        const searchPd = state.cartItems.find((item) => item.item.id === idPd);
         console.log(searchPd);
         if (searchPd) {
           searchPd.qty += action.payload.qty;

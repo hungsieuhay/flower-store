@@ -1,14 +1,13 @@
 import LocationOnIcon from "@material-ui/icons/LocationOn";
-import SearchIcon from "@material-ui/icons/Search";
-import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import PropTypes from "prop-types";
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { Link, useLocation } from "react-router-dom";
 import productsApi from "../../api/productApi";
 import SearchInput from "../SearchInput";
 import SearchList from "../SearchList";
 import "./Header.scss";
+import * as action from "../../redux/users/userAction";
 
 Header.propTypes = {
   headerLinkItem: PropTypes.array,
@@ -16,6 +15,7 @@ Header.propTypes = {
 
 function Header({ headerLinkItem = [] }) {
   const [show, setShow] = useState(false);
+  const [showInfo, setShowInfo] = useState(false);
   const [isActive, setActive] = useState(false);
   const location = useLocation();
   const path = location.pathname.substring(1);
@@ -23,10 +23,13 @@ function Header({ headerLinkItem = [] }) {
   const [filter, setFilter] = useState({});
   const [items, setItems] = useState([]);
 
+  const { currentUser } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+
   useEffect(() => {
     (async () => {
       try {
-        if (filter.title_like !== "") {
+        if (filter.title_like !== "" && filter.title_like.length >= 4) {
           const { data } = await productsApi.getAll();
           setItems(
             data.filter((item) =>
@@ -42,8 +45,6 @@ function Header({ headerLinkItem = [] }) {
     })();
   }, [filter]);
 
-  console.log(items);
-
   const handleClick = (e) => {
     if (path === e.target.innerHTML) {
       setActive(!isActive);
@@ -52,14 +53,20 @@ function Header({ headerLinkItem = [] }) {
   };
 
   const handleSearchSubmit = (formValues) => {
-    console.log("Form value:", formValues);
     setFilter({
       title_like: formValues.searchTerm,
     });
   };
 
+  const handleLogout = () => {
+    if (currentUser) {
+      dispatch(action.logoutInitial());
+      alert("Đăng xuất thành công");
+    }
+  };
+
   return (
-    <div className="grid-config">
+    <div className="full-width">
       <div className="header">
         <div className="header__nav">
           <div className="header__nav-left">
@@ -77,12 +84,29 @@ function Header({ headerLinkItem = [] }) {
                 <SearchList data={items} />
               </>
             )}
-            <SearchIcon
-              style={{ fontSize: "32px", paddingRight: "20px" }}
+            <img
+              src="https://cassiopeia.store/svgs/search.svg"
+              alt=""
               onClick={() => setShow(!show)}
             />
-            <Link to="/sign-in">Sign in</Link>
-            <ShoppingCartIcon style={{ fontSize: "32px" }} />
+            <img src="https://cassiopeia.store/svgs/cart.svg" alt="" />
+            <div style={{ width: "50%" }}>
+              {currentUser ? (
+                <img
+                  src={currentUser.photoURL}
+                  alt=""
+                  onClick={() => setShowInfo(!showInfo)}
+                />
+              ) : (
+                <Link to="/login">LOGIN</Link>
+              )}
+              {showInfo && (
+                <ul className="user-info" onClick={() => setShowInfo(false)}>
+                  <li>Hello, {currentUser.displayName}</li>
+                  <li onClick={handleLogout}>Log out</li>
+                </ul>
+              )}
+            </div>
           </div>
         </div>
 

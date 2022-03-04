@@ -4,9 +4,9 @@
   width: 156px;
   z-index: 10;
 
-  &:hover .list-filter {
-    display: block;
-  }
+  // &:hover .list-filter {
+  //   display: block;
+  // }
 
   & > div:hover {
     opacity: 0.8;
@@ -17,7 +17,7 @@
   }
 
   & > ul {
-    display: none;
+    // display: none;
     position: absolute;
     background-color: #fff;
     border-radius: 8px;
@@ -25,6 +25,7 @@
     border: 1px solid rgba(0, 0, 0, 0.03);
     box-sizing: border-box;
     padding: 5px 0;
+    top: calc(100% + 16px);
 
     & > li {
       list-style: none;

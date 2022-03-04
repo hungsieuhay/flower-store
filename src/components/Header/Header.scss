@@ -1,14 +1,16 @@
-.grid-config {
-  width: 1200px;
-  display: block;
-  margin: 0 auto;
+.full-width {
+  width: 100%;
+  box-shadow: 0px 15px 10px -15px rgb(0 0 0 / 8%);
 }
 .header {
+  max-width: 1200px;
+  display: block;
+  margin: 0 auto;
   &__nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 8px 0 20px;
+    margin: 8px 0 10px;
 
     & > a {
       font-size: 24px;
@@ -26,6 +28,26 @@
       cursor: pointer;
       display: flex;
       align-items: center;
+      gap: 10px;
+      width: 10%;
+      justify-content: flex-end;
+
+      & > div > a {
+        font-weight: 500;
+        color: #000;
+        font-size: 16px;
+        text-decoration: none;
+      }
+      & > div > a:hover {
+        opacity: 0.8;
+        cursor: pointer;
+      }
+
+      & > div > img {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+      }
     }
   }
 }
@@ -36,6 +58,7 @@
   justify-content: center;
   padding-left: 0;
   margin: 0 0 40px;
+  padding-bottom: 20px;
 
   & > li {
     margin: 0 32px;
@@ -51,4 +74,35 @@
 }
 .active {
   font-weight: 700;
+}
+
+.user-info {
+  position: absolute;
+  padding-left: 0;
+  margin: 0;
+  display: inline-block;
+  box-shadow: -5px 10px 35px rgb(90 92 102 / 6%);
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  top: calc(100% + 10px);
+  right: 6px;
+
+  & > li {
+    list-style-type: none;
+    background-color: #fff;
+    padding: 6px 8px;
+  }
+
+  & > li:first-child {
+    border-bottom: 1px solid #ccc;
+  }
+
+  &::after {
+    content: " ";
+    position: absolute;
+    border: 12px solid;
+    border-color: transparent transparent #fff transparent;
+    top: -20px;
+    right: 24px;
+  }
 }
