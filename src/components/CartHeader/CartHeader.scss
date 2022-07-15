@@ -1,0 +1,98 @@
+.cart-header {
+  padding: 0 60px;
+  position: absolute;
+  display: block;
+  margin-top: 12px;
+  position: absolute;
+  top: 100%;
+  width: 554px;
+  max-width: 554px;
+  right: 0;
+  z-index: 10;
+  background-color: #fff;
+  box-sizing: border-box;
+  overflow: auto;
+  transition: height 0.3s;
+  box-shadow: -5px 10px 35px rgb(90 92 102 / 6%);
+  cursor: default;
+
+  & > h3 {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+    margin: 30px 0;
+  }
+  & > p {
+    color: #595cff;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-bottom: 30px;
+  }
+  & > form {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    margin-bottom: 30px;
+    & > input {
+      width: 70%;
+      padding: 8px 13px;
+      box-sizing: border-box;
+      background-color: #f9f9fb;
+      border: 1px solid #e6e6eb;
+      border-radius: 4px;
+      outline: none;
+      margin-right: 5px;
+    }
+    & > button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+      background: #fff;
+      border-radius: 4px;
+      padding: 0;
+      width: 40%;
+      height: 40px;
+      border: 1px solid #595cff;
+      transition: 0.2s;
+      font-size: 14px;
+      line-height: 17px;
+      font-weight: 500;
+      &:hover {
+        background-color: #595cff;
+        color: #fff;
+      }
+    }
+  }
+  &__shipping,
+  &__code,
+  &__total {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-top: 1px solid #ccc;
+    cursor: text;
+  }
+
+  &__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #000;
+    margin: 30px 25%;
+    cursor: pointer;
+    width: 50%;
+    &:hover {
+      opacity: 0.8;
+    }
+
+    & > span {
+      color: #fff;
+      border: none;
+      margin: 0 12px 0 0;
+    }
+  }
+}

@@ -14,8 +14,8 @@ function TitlePage({ data = [] }) {
         <Link to="/home">
           <span>Home</span>
         </Link>
-        {data.map((title) => (
-          <p key={title} className="title-page__location">
+        {data.map((title, index) => (
+          <p key={index} className="title-page__location">
             <span>/</span>
             {title}
           </p>

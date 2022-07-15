@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./SelectByCategory.scss";
 
 const data = [
@@ -9,17 +9,22 @@ const data = [
 ];
 
 function SelectByCategory(props) {
+  const [show, setShow] = useState(false);
   return (
     <div className="select">
-      <div>
+      <div onClick={() => setShow(!show)}>
         <span>Sort by</span>
         <img src="https://cassiopeia.store/svgs/dropdown-i.svg" alt="" />
       </div>
-      <ul className="list-filter">
-        {data.map((item) => (
-          <li key={item.title}>{item.title}</li>
-        ))}
-      </ul>
+      {show && (
+        <ul className="list-filter">
+          {data.map((item) => (
+            <li key={item.title} onClick={() => setShow(false)}>
+              {item.title}
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }

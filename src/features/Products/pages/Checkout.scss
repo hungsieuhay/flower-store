@@ -1,14 +1,14 @@
 .checkout {
-  width: 1200px;
+  max-width: 1200px;
   display: block;
   margin: 0 auto 50px;
-  
+  width: 100%;
+
   &_main {
-    display:flex;
+    display: flex;
     justify-content: space-between;
   }
   &-container {
-  width:50%
-
+    width: 50%;
   }
 }

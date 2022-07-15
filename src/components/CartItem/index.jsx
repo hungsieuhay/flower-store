@@ -1,9 +1,8 @@
-import React from "react";
 import PropTypes from "prop-types";
-import "./CartItem.scss";
-import DeleteIcon from "@material-ui/icons/Delete";
+import React from "react";
 import { useDispatch } from "react-redux";
 import * as action from "../../redux/cart/cartAction";
+import "./CartItem.scss";
 
 CartItem.propTypes = {
   cartItem: PropTypes.object,
@@ -14,6 +13,12 @@ function CartItem({ cartItem = {} }) {
   const handleDelete = () => {
     dispatch(action.removeFromCart(cartItem.item, cartItem.qty));
   };
+  const increamentQuantity = () => {
+    dispatch(action.increamentItems(cartItem.item, cartItem.qty));
+  };
+  const decreamentQuantity = () => {
+    dispatch(action.decrementItems(cartItem.item, cartItem.qty));
+  };
   return (
     <div className="cart-item">
       <div className="cart-item__thumbnail">
@@ -21,18 +26,18 @@ function CartItem({ cartItem = {} }) {
       </div>
       <div className="cart-item__content">
         <p>{cartItem.item.name}</p>
-        <div>
-          <span
-            style={{
-              marginRight: "16px",
-              fontSize: "14px",
-              fontWeight: "500",
-            }}
-          >
-            Quantity: {cartItem.qty}
+        <div className="cart-item__quantity">
+          <div onClick={decreamentQuantity}>
+            <img src="https://cassiopeia.store/svgs/minus-i.svg" alt="error" />
+          </div>
+          <input value={cartItem.qty} type="text" />
+          <div onClick={increamentQuantity}>
+            <img src="https://cassiopeia.store/svgs/plus-i.svg " alt="error" />
+          </div>
+          <span style={{ color: "red", marginLeft: "10px" }}>$</span>
+          <span style={{ color: "red" }}>
+            {cartItem.item.price * cartItem.qty}
           </span>
-          <span style={{ color: "red" }}>$</span>
-          <span style={{ color: "red" }}>{cartItem.item.price}</span>
         </div>
       </div>
       <div className="cart-item__action">

@@ -1,14 +1,14 @@
 .cart-item {
-  margin:16px 0 40px;
+  margin: 16px 0 40px;
   display: flex;
-  justify-content:space-between;
+  justify-content: space-between;
   align-items: center;
-  
-  &__thumbnail{
+
+  &__thumbnail {
     background-color: #f8f8f8;
 
     & > img {
-      height:100px;
+      height: 100px;
       width: 100px;
       object-fit: cover;
     }
@@ -20,13 +20,13 @@
     flex-direction: column;
     margin: 0 20px 20px;
   }
-  
+
   &__action {
     display: flex;
     flex-direction: column;
-    justify-content:center;
+    justify-content: center;
     align-items: center;
-    gap:12px;
+    gap: 12px;
 
     & > img:hover {
       cursor: pointer;
@@ -34,5 +34,21 @@
     }
   }
 
- 
+  &__quantity {
+    display: flex;
+    align-items: center;
+
+    & > input {
+      border: none;
+      width: 10%;
+      outline: none;
+      margin: 0 8px;
+      text-align: center;
+    }
+
+    & > div > img:hover {
+      cursor: pointer;
+      opacity: 0.8;
+    }
+  }
 }

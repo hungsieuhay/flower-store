@@ -3,7 +3,6 @@ import * as actionTypes from "./types";
 const initialState = {
   cartItems: [],
   totalMoney: 0,
-  // countItems: 0, 
 };
 
 const cartReducer = (state = initialState, action) => {
@@ -20,21 +19,19 @@ const cartReducer = (state = initialState, action) => {
         };
         return {
           ...state,
-          cartItems: [...state.cartItems, newItems],
-          totalMoney:
-            parseInt(state.totalMoney) +
-            parseInt(action.payload.item.price) * action.payload.qty,
+          cartItems: [newItems],
+          totalMoney: parseInt(action.payload.item.price) * action.payload.qty,
         };
       } else {
         // debugger;
 
-        const idPd = action.payload.item.id;
-        const searchPd = state.cartItems.filter(
-          (item) => item.item.id === idPd
-        )[0];
-        console.log(searchPd);
-        if (searchPd) {
-          searchPd.qty += action.payload.qty;
+        const itemId = action.payload.item.id;
+        const itemInCart = state.cartItems.find(
+          (item) => item.item.id === itemId
+        );
+        console.log(itemInCart);
+        if (itemInCart) {
+          itemInCart.qty += action.payload.qty;
           return {
             ...state,
             totalMoney:
@@ -65,6 +62,30 @@ const cartReducer = (state = initialState, action) => {
           parseInt(state.totalMoney) -
           parseInt(action.payload.item.price) * action.payload.qty,
       };
+    case actionTypes.INCREAMENT_ITEMS: {
+      const itemId = action.payload.item.id;
+      const itemInCart = state.cartItems.find(
+        (item) => item.item.id === itemId
+      );
+      itemInCart.qty = action.payload.qty + 1;
+      return {
+        ...state,
+        totalMoney:
+          parseInt(state.totalMoney) + parseInt(action.payload.item.price),
+      };
+    }
+    case actionTypes.DECREAMENT_ITEMS: {
+      const itemId = action.payload.item.id;
+      const itemInCart = state.cartItems.find(
+        (item) => item.item.id === itemId
+      );
+      itemInCart.qty = action.payload.qty - 1;
+      return {
+        ...state,
+        totalMoney:
+          parseInt(state.totalMoney) - parseInt(action.payload.item.price),
+      };
+    }
 
     default:
       return state;

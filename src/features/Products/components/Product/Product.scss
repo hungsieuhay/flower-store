@@ -19,17 +19,31 @@
     }
 
     &:hover .product__action {
-      display: block;
       position: absolute;
-      bottom: 0;
-      top: 70%;
-      right: 50%;
-      transform: translateX(50%);
-      width: 100%;
-      bottom: 0;
+      display: flex;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
       & > img {
         display: inline-block;
         margin: 0 15px;
+      }
+      & > div {
+        display: block;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background-color: #00ff00;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        bottom: 80%;
+        left: 30%;
+        & > img {
+          height: 10px;
+          width: 10px;
+        }
       }
     }
   }

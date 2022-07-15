@@ -14,7 +14,9 @@ function DetailPage(props) {
 
   // path
   const path = location.pathname.split("/");
-  path.shift();
+  const p = path.shift();
+  console.log(p);
+
   path[path.length - 1] = product.name;
   const category = path[0];
 

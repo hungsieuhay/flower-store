@@ -1,4 +1,3 @@
-import productsApi from "../../api/productApi";
 import * as actionTypes from "./types";
 
 export const addToCart = (item, qty) => {
@@ -21,19 +20,22 @@ export const removeFromCart = (item, qty) => {
   };
 };
 
-export const adjustQty = (itemID, value) => {
+export const increamentItems = (item, qty) => {
   return {
-    type: actionTypes.ADJUST_QTY,
+    type: actionTypes.INCREAMENT_ITEMS,
     payload: {
-      id: itemID,
-      qty: value,
+      item: item,
+      qty: qty,
     },
   };
 };
 
-export const loadCurrentItem = (item) => {
+export const decrementItems = (item, qty) => {
   return {
-    type: actionTypes.LOAD_CURRENT_ITEM,
-    payload: item,
+    type: actionTypes.DECREAMENT_ITEMS,
+    payload: {
+      item: item,
+      qty: qty,
+    },
   };
 };
