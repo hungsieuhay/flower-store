@@ -6,7 +6,6 @@ import { Link, useLocation } from "react-router-dom";
 import productsApi from "../../api/productApi";
 import SearchInput from "../SearchInput";
 import SearchList from "../SearchList";
-import CartHeader from "../CartHeader";
 import "./Header.scss";
 import * as action from "../../redux/users/userAction";
 
@@ -17,7 +16,6 @@ Header.propTypes = {
 function Header({ headerLinkItem = [] }) {
   const [show, setShow] = useState(false);
   const [showInfo, setShowInfo] = useState(false);
-  const [showCart, setShowCart] = useState(false);
   const [isActive, setActive] = useState(false);
   const location = useLocation();
   const path = location.pathname.substring(1);
@@ -26,7 +24,6 @@ function Header({ headerLinkItem = [] }) {
   const [items, setItems] = useState([]);
 
   const { currentUser } = useSelector((state) => state.user);
-  const { cartItems } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -92,26 +89,8 @@ function Header({ headerLinkItem = [] }) {
               alt=""
               onClick={() => setShow(!show)}
             />
-            {showCart ? (
-              <>
-                <img
-                  src="https://cassiopeia.store/svgs/close.svg"
-                  alt=""
-                  onClick={() => setShowCart(!showCart)}
-                />
-                <CartHeader />
-              </>
-            ) : (
-              <div onClick={() => setShowCart(!showCart)}>
-                <img src="https://cassiopeia.store/svgs/cart.svg" alt="" />
-                {cartItems.length > 0 && (
-                  <div className="cart-quantity">
-                    <span>{cartItems.length}</span>
-                  </div>
-                )}
-              </div>
-            )}
-            <div className="header__nav-action--ava" style={{ width: "50%" }}>
+            <img src="https://cassiopeia.store/svgs/cart.svg" alt="" />
+            <div style={{ width: "50%" }}>
               {currentUser ? (
                 <img
                   src={currentUser.photoURL}
